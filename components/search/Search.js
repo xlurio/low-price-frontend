@@ -1,24 +1,13 @@
-import styles from '../../styles/components/search/Search.module.scss';
+import { Fragment } from 'react';
+import Games from './Games';
+import SearchBar from './SearchBar';
 
-import { useCallback, useEffect, useState } from 'react';
-import useValueInput from '../../hooks/useValueInput';
-import TextInput from '../text-input/TextInput';
-
-const Search = (props) => {
-  const [searchInput, changeSearchInput] = useValueInput();
-
-  const enterInSearchingMode = () => {};
-
+const Search = () => {
   return (
-    <form id='search'>
-      <TextInput
-        data-testid='search-bar'
-        className={styles['search-bar__initial-state']}
-        onChange={changeSearchInput}
-        onClick={enterInSearchingMode}
-        placeholder='Start'
-      />
-    </form>
+    <Fragment>
+      <SearchBar />
+      <Games />
+    </Fragment>
   );
 };
 

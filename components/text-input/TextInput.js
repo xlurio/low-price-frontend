@@ -13,7 +13,9 @@ const TextInput = (props) => {
     <input
       className={classNames}
       data-testid={props['data-testid'] || 'text-input'}
+      onBlur={props.onBlur}
       onChange={changeTextInput}
+      onFocus={props.onFocus}
       placeholder={props.placeholder}
       type='text'
       value={props.value}

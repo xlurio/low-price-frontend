@@ -1,0 +1,81 @@
+@use '../../utils/variables';
+
+@font-face {
+  font-family: 'Retro Gaming';
+  src: url('../../../public/fonts/Retro\ Gaming.ttf');
+}
+
+.search-bar__initial-state {
+  background-color: variables.$primary-color;
+  border: 1px solid variables.$primary-color;
+  bottom: 0;
+  display: block;
+  font-size: 3em;
+  left: 0;
+  margin: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.search-bar__initial-state::placeholder {
+  color: variables.$text-color;
+  font-family: 'Retro Gaming';
+  font-weight: bold;
+  opacity: 1;
+  text-align: center;
+}
+
+.search-bar__search-mode {
+  background-color: white;
+  border: 5px solid variables.$primary-color;
+  display: block;
+  font-size: 3em;
+  margin: 2rem auto;
+  position: sticky;
+  width: 90%;
+}
+
+.search-bar__search-mode-entering {
+  animation: search-mode-transition 100ms ease-out;
+}
+
+@keyframes search-mode-transition {
+  0% {
+    background-color: variables.$primary-color;
+    border: 1px solid variables.$primary-color;
+    bottom: 0;
+    display: block;
+    font-size: 3em;
+    left: 0;
+    margin: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50%;
+  }
+
+  50% {
+    background-color: white;
+    border-width: 2.5px;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: -45%;
+    width: 75%;
+  }
+
+  100% {
+    background-color: white;
+    border-width: 5px;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: -77%;
+    width: 90%;
+  }
+}
