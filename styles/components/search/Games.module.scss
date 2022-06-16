@@ -1,0 +1,13 @@
+@use '../../utils/variables';
+
+.games {
+  align-items: center;
+  background-color: variables.$background-color-dark;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  padding: 1rem;
+  width: 90%;
+}

@@ -1,0 +1,32 @@
+@use '../../utils/variables';
+
+.game-item-wrapper {
+  margin: 1rem auto;
+  width: 45%;
+}
+
+.game-item {
+  align-items: center;
+  background-color: variables.$background-color-light;
+  border-radius: 10px;
+  display: flex;
+  gap: 3rem;
+  padding: 1rem 1rem;
+  justify-content: left;
+}
+
+.game-item__description {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: left;
+  width: 60%;
+}
+
+.game-item__title {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

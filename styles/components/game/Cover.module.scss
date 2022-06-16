@@ -1,0 +1,14 @@
+@use '../../utils/variables';
+
+.cover {
+  border: 2px solid variables.$primary-color-dark;
+  border-radius: 10px;
+}
+
+.cover-background {
+  background-color: variables.$primary-color;
+  border-radius: 10px;
+  height: 128px;
+  padding: 2px;
+  width: 128px;
+}

@@ -60,30 +60,11 @@ describe('search component tests', () => {
     expect(searchBar).not.toHaveAttribute('class', expectedOutput);
   });
 
-  test('if the TextInput changes its old class on blur', async () => {
-    render(<SearchBar />);
+  test('if the props.onChange callback function is triggered when TextInput is focused', async () => {
+    const changeParent = jest.fn();
+    render(<SearchBar onChange={changeParent} />);
     const searchBar = screen.getByPlaceholderText('Start');
-    const expectedClass = styles['search-bar__initial-state'];
-    const expectedOutput = expect.stringContaining(expectedClass);
-
     await userEvent.click(searchBar);
-    await userEvent.tab();
-
-    expect(searchBar).toHaveAttribute('class', expectedOutput);
-  });
-
-  test('if the TextInput removes its class on blur', async () => {
-    render(<SearchBar />);
-    const searchBar = screen.getByPlaceholderText('Start');
-    const expectedClass1 = styles['search-bar__search-mode'];
-    const expectedClass2 = styles['search-bar__search-mode-entering'];
-    const expectedOutput =
-      expect.stringContaining(expectedClass1) &&
-      expect.stringContaining(expectedClass2);
-
-    await userEvent.click(searchBar);
-    await userEvent.tab();
-
-    expect(searchBar).not.toHaveAttribute('class', expectedOutput);
+    expect(changeParent).toBeCalledTimes(1);
   });
 });

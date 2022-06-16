@@ -1,0 +1,11 @@
+@use '../../utils/variables';
+
+.price {
+  background-color: variables.$secondary-color-dark;
+  border: 2px solid variables.$secondary-color;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  width: 100%;
+}

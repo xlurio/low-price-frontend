@@ -1,0 +1,11 @@
+@use '../../utils/variables';
+
+.gradient-border {
+  background-image: linear-gradient(
+    to right,
+    variables.$primary-color,
+    variables.$secondary-color
+  );
+  border-radius: 10px;
+  padding: 3px;
+}

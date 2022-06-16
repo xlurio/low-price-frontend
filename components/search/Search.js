@@ -6,7 +6,7 @@ const Search = () => {
   return (
     <Fragment>
       <SearchBar />
-      <Games />
+      <Games data-testid='search-results' />
     </Fragment>
   );
 };

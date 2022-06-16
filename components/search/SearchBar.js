@@ -1,7 +1,7 @@
 import styles from '../../styles/components/search/SearchBar.module.scss';
 
-import useToggleFieldStyles from '../../hooks/useToggleFieldStyles';
-import useValueInput from '../../hooks/useValueInput';
+import useToggleFieldStyles from '../../services/hooks/useToggleFieldStyles';
+import useValueInput from '../../services/hooks/useValueInput';
 
 import TextInput from '../text-input/TextInput';
 
@@ -26,7 +26,7 @@ const fieldStylesOptions = {
 
 const SearchBar = (props) => {
   const [searchInput, changeSearchInput] = useValueInput();
-  const [classes, placeholder, enterSearchMode, exitSearchMode] =
+  const [classes, placeholder, enterSearchMode] =
     useToggleFieldStyles(fieldStylesOptions);
 
   return (
@@ -34,7 +34,6 @@ const SearchBar = (props) => {
       <TextInput
         data-testid='search-bar'
         className={classes}
-        onBlur={exitSearchMode}
         onChange={changeSearchInput}
         onFocus={enterSearchMode}
         placeholder={placeholder}
