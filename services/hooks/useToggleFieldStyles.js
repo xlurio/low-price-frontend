@@ -29,11 +29,19 @@ const useToggleFieldStyles = (options = defaultFieldStyles) => {
     : placeholderOptions.initial;
 
   const toggleStylesOn = () => {
-    setStylesOn(true);
+    const toTrue = true;
+
+    const { onFocusCallback } = options;
+    onFocusCallback ? onFocusCallback(toTrue) : '';
+    setStylesOn(toTrue);
   };
 
   const toggleStylesOff = () => {
-    setStylesOn(false);
+    const toFalse = false;
+
+    const { onFocusCallback } = options;
+    onFocusCallback ? onFocusCallback(toFalse) : '';
+    setStylesOn(toFalse);
   };
 
   return [classes, placeholder, toggleStylesOn, toggleStylesOff];

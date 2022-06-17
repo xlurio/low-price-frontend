@@ -3,33 +3,16 @@ import styles from '../../styles/components/search/Games.module.scss';
 
 const testImage = '/images/test/testGameImage.jpg';
 
+const convertToGameItem = (gameData) => {
+  return <GameItem key={gameData.id} gameData={gameData} />;
+};
+
 const Games = (props) => {
+  const items = props.items || [];
+
   return (
     <section data-testid={props['data-testid']} className={styles['games']}>
-      <GameItem
-        title='Tomb Raider'
-        price='34.99'
-        score='86'
-        image={testImage}
-      />
-      <GameItem
-        title='Tomb Raider'
-        price='34.99'
-        score='86'
-        image={testImage}
-      />
-      <GameItem
-        title='Tomb Raider'
-        price='34.99'
-        score='86'
-        image={testImage}
-      />
-      <GameItem
-        title='Tomb Raider'
-        price='34.99'
-        score='86'
-        image={testImage}
-      />
+      {items.map(convertToGameItem)}
     </section>
   );
 };

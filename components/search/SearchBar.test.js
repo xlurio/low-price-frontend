@@ -60,11 +60,30 @@ describe('search component tests', () => {
     expect(searchBar).not.toHaveAttribute('class', expectedOutput);
   });
 
-  test('if the props.onChange callback function is triggered when TextInput is focused', async () => {
-    const changeParent = jest.fn();
-    render(<SearchBar onChange={changeParent} />);
-    const searchBar = screen.getByPlaceholderText('Start');
-    await userEvent.click(searchBar);
-    expect(changeParent).toBeCalledTimes(1);
-  });
+  test(
+    'if the props.onChange callback function is triggered when TextInput ' +
+      'is focused',
+    async () => {
+      const changeParent = jest.fn();
+      render(<SearchBar onFocus={changeParent} />);
+      const searchBar = screen.getByPlaceholderText('Start');
+      await userEvent.click(searchBar);
+      expect(changeParent).toBeCalledTimes(1);
+    }
+  );
+
+  test(
+    'the onChange callback function is called when the search bar content ' +
+      'changes',
+    async () => {
+      const onChangeCallback = jest.fn();
+      render(<SearchBar onChange={onChangeCallback} />);
+      const searchBar = screen.getByPlaceholderText('Start');
+      const testingSearch = 'is working';
+
+      await userEvent.type(searchBar, testingSearch);
+
+      expect(onChangeCallback).toBeCalledTimes(testingSearch.length);
+    }
+  );
 });

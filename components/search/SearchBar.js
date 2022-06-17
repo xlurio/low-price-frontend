@@ -19,13 +19,22 @@ const placeholderOptions = {
   alternative: '',
 };
 
-const fieldStylesOptions = {
-  classesOptions,
-  placeholderOptions,
-};
-
 const SearchBar = (props) => {
-  const [searchInput, changeSearchInput] = useValueInput();
+  const changeSearchInputOptions = {
+    initialValue: '',
+    onChangeCallback: props.onChange,
+  };
+
+  const [searchInput, changeSearchInput] = useValueInput(
+    changeSearchInputOptions
+  );
+
+  const fieldStylesOptions = {
+    classesOptions,
+    placeholderOptions,
+    onFocusCallback: props.onFocus,
+  };
+
   const [classes, placeholder, enterSearchMode] =
     useToggleFieldStyles(fieldStylesOptions);
 
