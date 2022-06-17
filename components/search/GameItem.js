@@ -18,12 +18,12 @@ const GameItem = (props) => {
 
   if (props.gameData) {
     const { gameData } = props;
-    console.log(gameData);
     const { id } = gameData;
     bestPrice = gameData.price;
     url = url + String(id);
     const fetchGameData = async () => {
       const response = await axios.get(url);
+      console.log(response.data);
       const { data } = response;
       const { game } = data;
       const { name: title } = game;
