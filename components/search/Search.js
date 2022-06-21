@@ -9,13 +9,13 @@ const domain = 'localhost:8000';
 const path = '/api/game/prices/best_prices';
 const url = sshProtocol + domain + path;
 
-const useFetchDataOptions = {
-  initialData: [],
-  url,
-  parameterName: 'game_name',
-};
-
 const Search = (props) => {
+  const useFetchDataOptions = {
+    initialData: props.games,
+    url,
+    parameterName: 'game_name',
+  };
+
   const [isSearchModeOn, setSearchModeOn] = useState(false);
   const [searchResults, setSearchResults] = useFetchData(useFetchDataOptions);
 
@@ -33,7 +33,11 @@ const Search = (props) => {
 };
 
 export async function getStaticProps() {
-  const response = await axios.get(url);
+  try {
+    const response = await axios.get(url);
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
   const { data: games } = response;
 
   return {

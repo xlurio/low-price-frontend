@@ -15,4 +15,30 @@ describe('Search component tests', () => {
     await userEvent.click(searchBar);
     const searchResults = screen.getByTestId('search-results');
   });
+
+  test('if the initial state is shown', async () => {
+    const dummyGames = [
+      {
+        id: '0',
+        game: {
+          name: 'Tomb Raider',
+          score: '86',
+        },
+        price: '34.99',
+      },
+      {
+        id: '1',
+        game: {
+          name: 'Risk of Rain 2',
+          score: '85',
+        },
+        price: '59.99',
+      },
+    ];
+
+    render(<Search games={dummyGames} />);
+    const searchBar = screen.getByPlaceholderText('Start');
+    await userEvent.click(searchBar);
+    screen.getByText('Risk of Rain 2');
+  });
 });

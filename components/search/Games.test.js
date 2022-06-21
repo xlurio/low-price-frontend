@@ -7,15 +7,19 @@ describe('Games component tests', () => {
     const dummyGames = [
       {
         id: '0',
-        title: 'Tomb Raider',
-        score: '86',
-        bestPrice: '34.99',
+        game: {
+          name: 'Tomb Raider',
+          score: '86',
+        },
+        price: '34.99',
       },
       {
         id: '1',
-        title: 'Risk of Rain 2',
-        score: '85',
-        bestPrice: '59.99',
+        game: {
+          name: 'Risk of Rain 2',
+          score: '85',
+        },
+        price: '59.99',
       },
     ];
     render(<Games items={dummyGames} />);
@@ -23,7 +27,7 @@ describe('Games component tests', () => {
     expect(gameItems.length).toBe(2);
   });
 
-  test('if the passed game items are dynamic', () => {
+  test('passing invalid data', () => {
     const dummyGames = [
       {
         id: '0',
@@ -44,8 +48,7 @@ describe('Games component tests', () => {
         price: '75,49',
       },
     ];
-    render(<Games items={dummyGames} />);
-    const gameItems = screen.getAllByTestId('game-item');
-    expect(gameItems.length).toBe(3);
+    const result = () => render(<Games items={dummyGames} />);
+    expect(result).toThrow();
   });
 });

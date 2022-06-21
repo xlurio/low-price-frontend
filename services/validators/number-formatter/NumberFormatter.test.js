@@ -1,5 +1,5 @@
-import NumberFormatter from './numberFormatter';
-import USAToEuropeanStrategy from './formatting/usaToEuropeanStrategy.js';
+import NumberFormatter from './NumberFormatter';
+import USAToEuropeanStrategy from './strategies/USAToEuropeanStrategy.js';
 
 describe('number formatter tests', () => {
   test('if the USAToEuropeanStrategy formats correctly', () => {

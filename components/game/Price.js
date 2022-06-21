@@ -1,5 +1,5 @@
-import USAToEuropeanStrategy from '../../services/validators/formatting/usaToEuropeanStrategy.js';
-import NumberFormatter from '../../services/validators/numberFormatter.js';
+import USAToEuropeanStrategy from '../../services/validators/number-formatter/strategies/USAToEuropeanStrategy.js';
+import NumberFormatter from '../../services/validators/number-formatter/NumberFormatter.js';
 import styles from '../../styles/components/game/Price.module.scss';
 
 const usaToEuropean = new USAToEuropeanStrategy();

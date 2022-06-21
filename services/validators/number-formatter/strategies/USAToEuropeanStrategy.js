@@ -1,4 +1,4 @@
-import NumberFormattingStrategy from './numberFormattingStrategy';
+import NumberFormattingStrategy from './NumberFormattingStrategy';
 
 class USAToEuropeanStrategy extends NumberFormattingStrategy {
   format(number) {
